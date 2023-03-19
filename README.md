@@ -21,6 +21,11 @@ In the project directory, you can run:
 ### `npm install @emotion/react`
 ### `npm install @emotion/styled`
 
+#for multi language support
+### `npm install react-i18next i18next --save`
+### `npm install i18next-browser-languagedetector`
+### `i18next-http-backend`
+
 #start dev environment
 ### `npm start`
 
