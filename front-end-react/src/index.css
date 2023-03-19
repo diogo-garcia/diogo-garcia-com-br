@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/roboto-condensed-v25-latin/roboto-condensed-v25-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./fonts/roboto-condensed-v25-latin/roboto-condensed-v25-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/roboto-condensed-v25-latin/roboto-condensed-v25-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/roboto-condensed-v25-latin/roboto-condensed-v25-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/roboto-condensed-v25-latin/roboto-condensed-v25-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/roboto-condensed-v25-latin/roboto-condensed-v25-latin-700.svg#RobotoCondensed') format('svg'); /* Legacy iOS */
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed',sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.MuiCard-root{
+  background-color: #3097e1 !important;
+  color: #fff !important ;
+}
+.MuiCardHeader-subheader{
+  color: #fff !important ;
+}
+
+.MuiTypography-root .OnePirateTypography-markedH2Center{background-color: #3097e1 !important;}
+.MuiTypography-root.white .OnePirateTypography-markedH2Center{background-color: #fff !important;}
+
+.about-me {
+  aspect-ratio: 1/1;
+  background: linear-gradient(45deg,transparent,#3097e1,transparent);
+  border-radius: 2rem;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+.about-me-image {
+  border-radius: 2rem;
+  overflow: hidden;
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+  transition: all 400ms ease;
+  background-color: yellow;
+}
+.about-me-image:hover {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.about-me-image img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-floating-menu {
+    display: none;
+  }
+}
