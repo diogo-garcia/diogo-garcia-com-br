@@ -13,11 +13,11 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import Tooltip from '@mui/material/Tooltip';
 import Grid from '@mui/material/Grid';
 
-
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
+import { useTranslation } from "react-i18next";
 
 const iconStyle = {
   width: 24,
@@ -138,6 +138,8 @@ function HeaderLayout(props) {
     };
   }, [setHomeOnScreen, setAboutOnScreen, setExperienceOnScreen, setContactOnScreen]);
 
+  const { t } = useTranslation(["translation"]);
+
   return (
     <ProductHeroLayoutRoot>
       <Container
@@ -153,27 +155,27 @@ function HeaderLayout(props) {
         <Background sx={sxBackground} />
         <Box className="main-floating-menu" sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 10, zIndex: 100, height: '74px', 
               backdropFilter: 'blur(15px)', borderRadius: '3rem', backgroundColor: 'rgba(0,0,0,.3)', }}>
-          <Tooltip title="Scroll Up" onClick={scrollUp}>
+          <Tooltip title={t('header.scroll_up')} onClick={scrollUp}>
             <Fab color="primary" variant="circular" aria-label="scrollup" size="medium" sx={{ backgroundColor: homeOnScreen, top: 5, left: 5 }}>
               <HouseIcon />
             </Fab>
           </Tooltip>
           <a href="#about">
-            <Tooltip title="About Me" ref={refAbout}>
+            <Tooltip title={t('header.about_me')} ref={refAbout}>
               <Fab color="primary" variant="string" aria-label="aboutme" size="medium" sx={{ backgroundColor: aboutOnScreen, top: 5, left: 2 }}>
                 <PersonIcon />
               </Fab>
             </Tooltip>
           </a>
           <a href="#experience" ref={refExperience}>
-            <Tooltip title="My Experience">
+            <Tooltip title={t('header.my_experience')}>
               <Fab color="primary" variant="string" aria-label="experience" size="medium" sx={{ backgroundColor: experienceOnScreen, top: 5, right: 2 }}>
                 <BookIcon />
               </Fab>
             </Tooltip>
           </a>
           <a href="#contact" ref={refContact}>
-            <Tooltip title="Contact Me">
+            <Tooltip title={t('header.contact_me')}>
               <Fab color="primary" variant="string" aria-label="contactme" size="medium" sx={{ backgroundColor: contactOnScreen, top: 5, right: 5 }}>
                 <PhoneIcon />
               </Fab>

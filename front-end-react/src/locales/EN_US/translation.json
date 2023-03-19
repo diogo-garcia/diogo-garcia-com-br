@@ -1,0 +1,36 @@
+{
+    "header.hello": "Hello I'm",
+    "header.job": "Fullstack developer",
+    "header.download_resume": "Download Resume",
+    "header.lets_talk": "Let's Talk",
+    "header.scroll_up": "Scroll Up",
+    "header.about_me": "About Me",
+    "header.my_experience": "My Experience",
+    "header.contact_me": "Contact Me",
+    
+    "about.about_me": "About Me",
+    "about.experience": "Experience",
+    "about.plus_10_years": "+10 years",
+    "about.clients": "Clients",
+    "about.plus_20": "+10",
+    "about.projects": "Projects",
+    "about.plus_50": "+50",
+    "about.about_my_complete": "Since I was a child, I was always very curious about how things worked, that is so true that my nickname was destructor because no toy was left intact in my hands. Since childhood I have always been interested and curious to understand how things work \"my toys didn’t enjoy this at all\". And that's how I started my journey in the world of technology in 2011 as a self-taught, I got the necessary qualification to enter the world where everything is possible by programming. And here we are today, a professional with many years of experience in front and back-end analysis and development.",
+    
+    "experience.my_experience": "My Experience",
+    "experience.front_end": "Frontend Development",
+    "experience.experienced": "Experienced",
+    "experience.intermediate": "Intermediate",
+    "experience.back_end": "Backend Development",
+    
+    "contact.send_message": "Send Message",
+    "contact.sending": "Sending...",
+    "contact.error_try_again": "Error, please try again later.",
+    "contact.contact_me": "Contact Me",
+    "contact.send_a_message": "Send a message",
+    "contact.your_full_name": "Your Full Name",
+    "contact.email_address": "Your E-mail Address",
+    "contact.your_message_here": "Your message here...",
+    
+    "footer.language": "Language"
+}

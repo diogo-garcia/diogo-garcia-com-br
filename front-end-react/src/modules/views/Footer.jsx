@@ -1,14 +1,17 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 import TextField from '../components/TextField';
-
+import i18n from "../../i18n";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+
+import { useTranslation } from "react-i18next";
 
 function Copyright() {
   return (
@@ -20,6 +23,12 @@ function Copyright() {
       {new Date().getFullYear()}
     </React.Fragment>
   );
+}
+
+function changeLanguageOnClick(evt) {
+  i18n.changeLanguage(evt.target.value);
+  window.localStorage.setItem("lingua", evt.target.value);
+  //console.log(window.localStorage.getItem("lingua"));
 }
 
 const iconStyle = {
@@ -38,16 +47,26 @@ const iconStyle = {
 
 const LANGUAGES = [
   {
-    code: 'EN-US',
-    name: 'English',
+    value: 'EN_US',
+    label: 'English',
   },
   {
-    code: 'PT-BR',
-    name: 'Português',
+    value: 'PT_BR',
+    label: 'Português',
   },
 ];
 
 export default function Footer() {
+  const { t } = useTranslation(["translation"]);
+
+  useEffect(() => {
+    //sessionStorage keeps the session util the window is closed
+    //localStorage does not expire the session even when the window is closed
+    if(!window.localStorage.getItem("lingua"))
+      window.localStorage.setItem("lingua", "EN_US");
+    i18n.changeLanguage(window.localStorage.getItem("lingua"));
+  },[]);
+
   return (
     <Typography
       component="footer"
@@ -81,9 +100,10 @@ export default function Footer() {
           </Grid>
           <Grid item xs={6} sm={8} md={4}>
             <Typography variant="h6" marked="left" gutterBottom>
-              Language
+              {t('footer.language')}
             </Typography>
             <TextField
+              value={window.localStorage.getItem("lingua")}
               select
               size="medium"
               variant="standard"
@@ -91,10 +111,11 @@ export default function Footer() {
                 native: true,
               }}
               sx={{ mt: 1, width: 150 }}
+              onChange={(e) => changeLanguageOnClick(e)}
             >
               {LANGUAGES.map((language) => (
-                <option value={language.code} key={language.code}>
-                  {language.name}
+                <option value={language.value} key={language.value}>
+                  {language.label}
                 </option>
               ))}
             </TextField>

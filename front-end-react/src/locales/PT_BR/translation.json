@@ -1,0 +1,36 @@
+{
+    "header.hello": "Olá meu nome é",
+    "header.job": "Desenvolvedor Fullstack",
+    "header.download_resume": "Baixar Currículo",
+    "header.lets_talk": "Vamos conversar",
+    "header.scroll_up": "Rolar para cima",
+    "header.about_me": "Sobre Mim",
+    "header.my_experience": "Minha Experiência",
+    "header.contact_me": "Entre em Contato",
+    
+    "about.about_me": "Sobre Mim",
+    "about.experience": "Experiência",
+    "about.plus_10_years": "+10 anos",
+    "about.clients": "Clientes",
+    "about.plus_20": "+10",
+    "about.projects": "Projetos",
+    "about.plus_50": "+50",
+    "about.about_my_complete": "Desde criança sempre tive muita curiosidade em saber como as coisas funcionavam, tanto que meu apelido era destruidor pois nenhum brinquedo ficava intacto em minhas mãos. Desde a infância sempre tive interesse e curiosidade em entender como as coisas funcionam \"meus brinquedos não gostavam nada disso\". E foi assim que comecei minha jornada no mundo da tecnologia em 2011 como autodidata, consegui a qualificação necessária para entrar no mundo onde tudo é possível programando. E aqui estamos hoje, um profissional com muitos anos de experiência em análise e desenvolvimento front e back-end.",
+    
+    "experience.my_experience": "Minha Experiência",
+    "experience.front_end": "Desenvolvimento Front-end",
+    "experience.experienced": "Experiente",
+    "experience.intermediate": "Intermediário",
+    "experience.back_end": "Desenvolvimento Back-end",
+    
+    "contact.send_message": "Senviar Mensagem",
+    "contact.sending": "Enviando...",
+    "contact.error_try_again": "Erro, por favor tente novamente ,ais tarde.",
+    "contact.contact_me": "Entre em Contato",
+    "contact.send_a_message": "Envie uma mensagem",
+    "contact.your_full_name": "Seu Nome Completo",
+    "contact.email_address": "Seu Endereço de E-mail",
+    "contact.your_message_here": "Sua mensagem aqui...",
+    
+    "footer.language": "Língua"
+}

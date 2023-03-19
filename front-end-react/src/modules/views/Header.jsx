@@ -9,6 +9,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ME from '../../images/ME.png';
 import Resume from '../../pdf/Resume-Diogo-Araujo-Garcia_2023.pdf';
 
+import { useTranslation } from "react-i18next";
+
 const theme = createTheme({
   palette: {
     white: {
@@ -18,6 +20,7 @@ const theme = createTheme({
 });
 
 export default function Header() {
+  const { t } = useTranslation(["translation"]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -33,7 +36,7 @@ export default function Header() {
           variant="h5"
           sx={{ mb: 4, mt: { sx: 4, sm: 10, lg:'15px' } }}
         >
-          Hello I'm
+          {t("header.hello")}
         </Typography>
         <Typography 
           align="center" 
@@ -53,7 +56,7 @@ export default function Header() {
           variant="h5"
           sx={{ mb: 4, mt: { sx: 4, sm: 4 } }}
         >
-          Fullstack developer
+          {t("header.job")}
         </Typography>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button
@@ -64,7 +67,7 @@ export default function Header() {
             href={Resume}
             sx={{ minWidth: 200, mt: 3, mr: 1, borderRadius: 2 }}
           >
-            Download Resume
+            {t("header.download_resume")}
           </Button>
           <Button
             color="primary" 
@@ -74,7 +77,7 @@ export default function Header() {
             href="#contact"
             sx={{ minWidth: 200, mt: 3, ml: 1, borderRadius: 2 }}
           >
-            Let's Talk
+            {t("header.lets_talk")}
           </Button>
         </Box>
         <Avatar alt="Diogo Araujo Garcia" src={ME} sx={{ backgroundColor: "#ffff40", width: 200, height: 200, mt: 3 }} />

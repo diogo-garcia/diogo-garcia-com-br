@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
-
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -18,6 +17,8 @@ import StorageIcon from '@mui/icons-material/Storage';
 import AppsIcon from '@mui/icons-material/Apps';
 import JavascriptIcon from '@mui/icons-material/Javascript';
 
+import { useTranslation } from "react-i18next";
+
 const item = {
   display: 'flex',
   flexDirection: 'column',
@@ -28,6 +29,8 @@ const item = {
 };
 
 function MyExperience() {
+  const { t } = useTranslation(["translation"]);
+
   return (
     <Box id="experience"
       component="section"
@@ -54,7 +57,7 @@ function MyExperience() {
           textTransform="uppercase"
           textAlign="center"
         >
-          My Experience
+          {t('experience.my_experience')}
         </Typography>
         <div>
           <Grid container spacing={5}>
@@ -65,7 +68,7 @@ function MyExperience() {
                   fontSize="18px"
                   lineHeight="1.6"
                   textTransform="uppercase">
-                  Frontend Development
+                  {t('experience.front_end')}
                 </Typography>
                 <Container sx={{ display: 'flex', mb: 3 }}>
                   <List sx={{width: '100%'}}>
@@ -75,7 +78,7 @@ function MyExperience() {
                           <HtmlIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="HTML" secondary="Experienced" />
+                      <ListItemText primary="HTML" secondary={t('experience.experienced')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -83,7 +86,7 @@ function MyExperience() {
                           <CssIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="CSS" secondary="Experienced" />
+                      <ListItemText primary="CSS" secondary={t('experience.experienced')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -91,7 +94,7 @@ function MyExperience() {
                           <JavascriptIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="Javascript" secondary="Experienced" />
+                      <ListItemText primary="Javascript" secondary={t('experience.experienced')} />
                     </ListItem>
                   </List>
                   <List sx={{width: '100%'}}>
@@ -101,7 +104,7 @@ function MyExperience() {
                           <SettingsIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="Boostrap" secondary="Experienced" />
+                      <ListItemText primary="Boostrap" secondary={t('experience.experienced')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -109,7 +112,7 @@ function MyExperience() {
                           <SettingsIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="jQuery" secondary="Experienced" />
+                      <ListItemText primary="jQuery" secondary={t('experience.experienced')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -117,7 +120,7 @@ function MyExperience() {
                           <SettingsIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="React" secondary="Intermediate" />
+                      <ListItemText primary="React" secondary={t('experience.intermediate')} />
                     </ListItem>
                   </List>
                 </Container>
@@ -130,7 +133,7 @@ function MyExperience() {
                   fontSize="18px"
                   lineHeight="1.6"
                   textTransform="uppercase">
-                  Backend Development
+                  {t('experience.back_end')}
                 </Typography>
                 <Container sx={{ display: 'flex', mb: 3 }}>
                   <List sx={{width: '100%'}}>
@@ -140,7 +143,7 @@ function MyExperience() {
                           <PhpIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="PHP" secondary="Experienced" />
+                      <ListItemText primary="PHP" secondary={t('experience.experienced')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -148,7 +151,7 @@ function MyExperience() {
                           <AppsIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="NodeJs" secondary="Intermediate" />
+                      <ListItemText primary="NodeJs" secondary={t('experience.intermediate')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -156,7 +159,7 @@ function MyExperience() {
                           <AppsIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="Java" secondary="Intermediate" />
+                      <ListItemText primary="Java" secondary={t('experience.intermediate')} />
                     </ListItem>
                   </List>
                   <List sx={{width: '100%'}}>
@@ -166,7 +169,7 @@ function MyExperience() {
                           <StorageIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="Oracle" secondary="Experienced" />
+                      <ListItemText primary="Oracle" secondary={t('experience.experienced')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -174,7 +177,7 @@ function MyExperience() {
                           <StorageIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="Postgres" secondary="Experienced" />
+                      <ListItemText primary="Postgres" secondary={t('experience.experienced')} />
                     </ListItem>
                     <ListItem>
                       <ListItemAvatar>
@@ -182,7 +185,7 @@ function MyExperience() {
                           <StorageIcon />
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary="Mysql" secondary="Experienced" />
+                      <ListItemText primary="Mysql" secondary={t('experience.experienced')} />
                     </ListItem>
                   </List>
                 </Container>

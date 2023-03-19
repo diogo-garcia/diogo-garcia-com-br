@@ -1,16 +1,15 @@
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 import ME from '../../images/ME.png';
-
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+
+import { useTranslation } from "react-i18next";
 
 const item = {
   display: 'flex',
@@ -40,6 +39,8 @@ const cardm = {
 };
 
 function AboutMe() {
+  const { t } = useTranslation(["translation"]);
+
   return (
     <Box id="about"
       component="section"
@@ -66,7 +67,7 @@ function AboutMe() {
           textTransform="uppercase"
           textAlign="center"
         >
-          About Me
+          {t('about.about_me')}
         </Typography>
         <div>
           <Grid container spacing={5}>
@@ -88,8 +89,8 @@ function AboutMe() {
                     />
                     <CardContent>
                       <Typography variant="body2" color="text.white" sx={{textAlign: 'center'}}>
-                        Experience<br></br>
-                        +10 years
+                        {t("about.experience")}<br></br>
+                        {t("about.plus_10_years")}
                       </Typography>
                     </CardContent>
                   </Card>
@@ -99,8 +100,8 @@ function AboutMe() {
                     />
                     <CardContent>
                       <Typography variant="body2" color="text.white" sx={{textAlign: 'center'}}>
-                        Clients<br></br>
-                        +20
+                        {t("about.clients")}<br></br>
+                        {t("about.plus_20")}
                       </Typography>
                     </CardContent>
                   </Card>
@@ -110,8 +111,8 @@ function AboutMe() {
                     />
                     <CardContent>
                       <Typography variant="body2" color="text.white" sx={{textAlign: 'center'}}>
-                        Projects<br></br>
-                        100
+                        {t("about.projects")}<br></br>
+                        {t("about.plus_50")}
                       </Typography>
                     </CardContent>
                   </Card>
@@ -123,12 +124,7 @@ function AboutMe() {
                   lineHeight="1.3"
                   textAlign="justify"
                 >
-                  Since I was a child, I was always very curious about how things worked, that is so true that my nickname was
-                  destructor because no toy was left intact in my hands. Since childhood I have always been interested and
-                  curious to understand how things work "my toys didn’t enjoy this at all". And that's how I started my journey in
-                  the world of technology in 2011 as a self-taught, I got the necessary qualification to enter the world where
-                  everything is possible by programming. And here we are today, a professional with many years of experience
-                  in front and back-end analysis and development.
+                  {t("about.about_my_complete")}
                 </Typography>
               </Box>
             </Grid>

@@ -1,19 +1,18 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
 import Avatar from '@mui/material/Avatar';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import WhatsApp from '@mui/icons-material/WhatsApp';
-
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+
+import { useTranslation } from "react-i18next";
 
 const item = {
   display: 'flex',
@@ -23,47 +22,53 @@ const item = {
 };
 
 function ContactMe() {
-    const [btnSendMessage, setBtnSendMessage] = useState({
-      status: null, 
-      text: 'Send Message',
-    });
-    
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        let url = "https://www.diogogarcia.com.br/app/";
-        const data = new FormData(evt.currentTarget);
-        var json_data = {
-            name: data.get('name'),
-            email: data.get('email'),
-            message: data.get('message'),
-        };
-        console.log(json_data);
-        setBtnSendMessage({status: true, text: 'Sending...'});
-    
-        const requestOptions = {
-            method: 'POST',
-            mode: "no-cors",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(json_data)
-        };
-        fetch(url, requestOptions)
-        .then(async response => {
-            const isJson = response.headers.get('content-type')?.includes('application/json');
-            const data = isJson && await response.json();
+  const { t } = useTranslation(["translation"]);
+  const send_message = t('contact.send_message');
+  const [btnSendMessage, setBtnSendMessage] = useState({
+    status: null, 
+    text: send_message,
+  });
 
-            if (!response.ok) {
-                // get error message from body or default to response status
-                const error = (data && data.message) || response.status;
-                return Promise.reject(error);
-            }
-
-            this.setState({ postId: data.id })
-        })
-        .catch(error => {
-            console.error('There was an error!', error);
-            setBtnSendMessage({status: true, text: 'Error, please try again later.'});
-        });
+  useEffect(()=>{
+    setBtnSendMessage({status: false, text: send_message});
+  },[setBtnSendMessage, send_message]);
+  
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    let url = "https://www.diogogarcia.com.br/app/";
+    const data = new FormData(evt.currentTarget);
+    var json_data = {
+        name: data.get('name'),
+        email: data.get('email'),
+        message: data.get('message'),
     };
+    console.log(json_data);
+    setBtnSendMessage({status: true, text: t('contact.sending')});
+
+    const requestOptions = {
+        method: 'POST',
+        mode: "no-cors",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(json_data)
+    };
+    fetch(url, requestOptions)
+    .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const data = isJson && await response.json();
+
+        if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (data && data.message) || response.status;
+            return Promise.reject(error);
+        }
+
+        this.setState({ postId: data.id })
+    })
+    .catch(error => {
+        console.error('There was an error!', error);
+        setBtnSendMessage({status: true, text: t('contact.error_try_again')});
+    });
+  };
 
   return (
     <Box id="contact"
@@ -91,7 +96,7 @@ function ContactMe() {
           textTransform="uppercase"
           textAlign="center"
         >
-          Contact Me
+          {t('contact.contact_me')}
         </Typography>
         <div>
           <Grid container spacing={5}>
@@ -106,13 +111,13 @@ function ContactMe() {
                                 <EmailOutlined />
                             </Avatar>
                             <Typography variant="h5" component="div">
-                                E-mail
+                              E-mail
                             </Typography>
                             <Typography sx={{ mb: 1.5 }}>
-                            contato@diogogarcia.com.br
+                              contato@diogogarcia.com.br
                             </Typography>
                             <Typography sx={{color:'white'}} variant="body2" component="a" target="_blank" href="mailto:contato@diogogarcia.com.br">
-                                Send a message
+                              {t('contact.send_a_message')}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -125,13 +130,13 @@ function ContactMe() {
                                 <WhatsApp />
                             </Avatar>
                             <Typography variant="h5" component="div">
-                                WhatsApp
+                              WhatsApp
                             </Typography>
                             <Typography sx={{ mb: 1.5 }}>
-                                +55 21 99480-1859
+                              +55 21 99480-1859
                             </Typography>
                             <Typography sx={{color:'white'}} variant="body2" component="a" target="_blank" href="https://wa.me/5521994801859">
-                                Send a message
+                              {t('contact.send_a_message')}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -146,13 +151,13 @@ function ContactMe() {
                     alignItems: 'center',
                     }}
                 >
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
                     <TextField
                         margin="normal"
                         required
                         fullWidth
                         name="name"
-                        label="Yout Full Name"
+                        label={t('contact.your_full_name')}
                         id="name"
                         autoComplete="name"
                     />
@@ -161,7 +166,8 @@ function ContactMe() {
                         required
                         fullWidth
                         id="email"
-                        label="Email Address"
+                        type="email"
+                        label={t('contact.email_address')}
                         name="email"
                         autoComplete="email"
                     />
@@ -170,7 +176,7 @@ function ContactMe() {
                         required
                         fullWidth
                         id="message"
-                        label="Your message here..."
+                        label={t('contact.your_message_here')}
                         name="message"
                         rows={5}
                         inputProps={{ 'data-lpignore': true }} //lastpass error fix on enter press

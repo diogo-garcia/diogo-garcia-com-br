@@ -14,6 +14,8 @@ import AboutMe from './modules/views/AboutMe';
 import Footer from './modules/views/Footer';
 import ContactMe from './modules/views/ContactMe'
 
+import './i18n';
+
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import RobotoCondensed300eot from './fonts/roboto-condensed-v25-latin/roboto-condensed-v25-latin-300.eot';
