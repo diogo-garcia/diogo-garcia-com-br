@@ -11,6 +11,27 @@ import PersonIcon from '@mui/icons-material/Person';
 import BookIcon from '@mui/icons-material/LocalLibrary';
 import PhoneIcon from '@mui/icons-material/Phone';
 import Tooltip from '@mui/material/Tooltip';
+import Grid from '@mui/material/Grid';
+
+
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
+
+const iconStyle = {
+  width: 24,
+  height: 24,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'transparent',
+  color: 'white !important',
+  mb: 1,
+  '&:hover': {
+    bgcolor: 'primary.dark',
+  },
+};
 
 const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
   color: theme.palette.common.white,
@@ -98,6 +119,7 @@ function HeaderLayout(props) {
       //console.log(window.scrollY);
     };
 
+
     //verify if action on menu #about #experience or #contact
     var location = window.location.href;
     var locationArr = location.split("#");
@@ -127,7 +149,7 @@ function HeaderLayout(props) {
           alignItems: 'center',
         }}
       >
-        {children}
+        {children} 
         <Background sx={sxBackground} />
         <Box className="main-floating-menu" sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 10, zIndex: 100, height: '74px', 
               backdropFilter: 'blur(15px)', borderRadius: '3rem', backgroundColor: 'rgba(0,0,0,.3)', }}>
@@ -157,6 +179,19 @@ function HeaderLayout(props) {
               </Fab>
             </Tooltip>
           </a>
+        </Box>
+        <Box className="main-floating-menu" sx={{ '& > :not(style)': { m: 1 }, position: 'absolute', left: 10, bottom: 10, zIndex: 100 }}>
+          <Grid item sx={{ display: '' }}>
+            <Box component="a" target="_blank" href="https://www.linkedin.com/in/diogo-araujo-garcia/" sx={iconStyle}>
+              <LinkedInIcon />
+            </Box>
+            <Box component="a" target="_blank" href="https://github.com/diogo-garcia/diogo-garcia-com-br/" sx={iconStyle}>
+              <GitHubIcon />
+            </Box>
+            <Box component="a" target="_blank" href="https://wa.me/5521994801859" sx={iconStyle}>
+              <WhatsAppIcon />
+            </Box>
+          </Grid>
         </Box>
       </Container>
     </ProductHeroLayoutRoot>
