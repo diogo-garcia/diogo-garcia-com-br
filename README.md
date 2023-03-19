@@ -24,7 +24,7 @@ In the project directory, you can run:
 #for multi language support
 ### `npm install react-i18next i18next --save`
 ### `npm install i18next-browser-languagedetector`
-### `i18next-http-backend`
+### `npm install i18next-http-backend`
 
 #start dev environment
 ### `npm start`
