@@ -30,4 +30,4 @@ In the project directory, you can run:
 ### `npm start`
 
 #build app for production 
-### `npm build`
+### `npm run build`
