@@ -31,6 +31,7 @@
     "contact.your_full_name": "Seu Nome Completo",
     "contact.email_address": "Seu Endereço de E-mail",
     "contact.your_message_here": "Sua mensagem aqui...",
+    "contact.message_sent_successfully": "Mensagem enviada com sucesso!",
     
     "footer.language": "Língua"
 }

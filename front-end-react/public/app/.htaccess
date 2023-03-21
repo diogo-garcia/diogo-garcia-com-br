@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?diogogarcia.com.br [NC]
+RewriteRule \.(php)$ - [NC,F,L]

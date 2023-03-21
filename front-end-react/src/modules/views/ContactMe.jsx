@@ -11,6 +11,8 @@ import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import WhatsApp from '@mui/icons-material/WhatsApp';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 import { useTranslation } from "react-i18next";
 
@@ -24,6 +26,7 @@ const item = {
 function ContactMe() {
   const { t } = useTranslation(["translation"]);
   const send_message = t('contact.send_message');
+  const [openSnackbar, setOpenSnackbar] = React.useState(false);
   const [btnSendMessage, setBtnSendMessage] = useState({
     status: null, 
     text: send_message,
@@ -33,6 +36,13 @@ function ContactMe() {
     setBtnSendMessage({status: false, text: send_message});
   },[setBtnSendMessage, send_message]);
   
+  const handleCloseSnackbar = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnackbar(false);
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     let url = "https://www.diogogarcia.com.br/app/";
@@ -42,14 +52,17 @@ function ContactMe() {
         email: data.get('email'),
         message: data.get('message'),
     };
-    console.log(json_data);
+    //console.log(json_data);
     setBtnSendMessage({status: true, text: t('contact.sending')});
-
+    
     const requestOptions = {
         method: 'POST',
         mode: "no-cors",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(json_data)
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "params="+JSON.stringify(json_data),
     };
     fetch(url, requestOptions)
     .then(async response => {
@@ -62,7 +75,9 @@ function ContactMe() {
             return Promise.reject(error);
         }
 
-        this.setState({ postId: data.id })
+        setBtnSendMessage({status: null, text: send_message});
+        setOpenSnackbar(true);
+        evt.target.reset();
     })
     .catch(error => {
         console.error('There was an error!', error);
@@ -75,6 +90,11 @@ function ContactMe() {
       component="section"
       sx={{ display: 'flex', bgcolor: 'white', overflow: 'hidden' }}
     >
+      <Snackbar open={openSnackbar} autoHideDuration={6000} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
+          {t('contact.message_sent_successfully')}
+        </Alert>
+      </Snackbar>
       <Container
         sx={{
           mt: 10,
